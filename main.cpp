@@ -40,6 +40,7 @@ int main(){
 	*/
 	bool seguir = true;
 	vector<Racional> racionales;
+	racionales.push_back(crearRacional());
 	while(seguir){
 		switch(menu()){
 			case 1:
@@ -75,8 +76,11 @@ Racional crearRacional(){
 	int num;
 	cin >> num;
 	cout<<"Ingrese el denominador:";
-	int den;
-	cin >> den;
+	int den=0;
+	while (den == 0){
+		cout<<"No puede ser igual a cero"<<endl;
+		cin >> den;
+	}
 	Racional rac(num, den);
 	return rac;
 }
@@ -84,17 +88,22 @@ Racional crearRacional(){
 void sumar(vector<Racional>& racionales){
 	bool seguir = true;
 	Racional rac1, rac2, rac3;
-	int pos =0;
+	int pos =-1;
 	while(seguir){
 		switch(sumaMenu()){
 			case 1:
 				cout<<"Escoja el racional A:"<<endl;
 				listarRacionales(racionales);
-				pos=0;
-				cin>>pos;
+				pos = -1;	
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}
 				rac1 = racionales.at(pos);
 				cout<<"Escoja el racional B:"<<endl;
-				cin>>pos;	
+				pos = -1;
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}	
 				rac2 = racionales.at(pos);
 				rac3 = rac1 + rac2;
 				cout<<"Suma: "<<rac3.getNumerador()<<"/"<<rac3.getDenominador()<<endl;	
@@ -102,11 +111,16 @@ void sumar(vector<Racional>& racionales){
 			case 2:
 				cout<<"Escoja el racional A:"<<endl;
 				listarRacionales(racionales);
-				pos=0;
-				cin>>pos;
+				pos = -1;
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}
 				rac1 = racionales.at(pos);
 				cout<<"Escoja el racional B:"<<endl;
-				cin>>pos;
+				pos = -1;
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}
 				rac2 = racionales.at(pos);
 				rac1 += rac2;
 				cout<<"Suma: "<<rac1.getNumerador()<<"/"<<rac1.getDenominador()<<endl;
@@ -121,32 +135,42 @@ void sumar(vector<Racional>& racionales){
 void restar(vector<Racional>& racionales){
 	bool seguir = true;
 	Racional rac1, rac2, rac3;
-	int pos =0;
+	int pos =-1;
 	while(seguir){
 		switch(restaMenu()){
 			case 1:
 				cout<<"Escoja el racional A:"<<endl;
 				listarRacionales(racionales);
-				pos=0;
-				cin>>pos;
+				pos = -1;
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}
 				rac1 = racionales.at(pos);
 				cout<<"Escoja el racional B:"<<endl;
-				cin>>pos;	
+				pos = -1;
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}	
 				rac2 = racionales.at(pos);
 				rac3 = rac1 - rac2;
-				cout<<"Suma: "<<rac3.getNumerador()<<"/"<<rac3.getDenominador()<<endl;	
+				cout<<"Resta: "<<rac3.getNumerador()<<"/"<<rac3.getDenominador()<<endl;	
 				break;
 			case 2:
 				cout<<"Escoja el racional A:"<<endl;
 				listarRacionales(racionales);
-				pos=0;
-				cin>>pos;
+				pos = -1;
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}
 				rac1 = racionales.at(pos);
 				cout<<"Escoja el racional B:"<<endl;
-				cin>>pos;
+				pos = -1;
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}
 				rac2 = racionales.at(pos);
 				rac1 -= rac2;
-				cout<<"Suma: "<<rac1.getNumerador()<<"/"<<rac1.getDenominador()<<endl;
+				cout<<"Resta: "<<rac1.getNumerador()<<"/"<<rac1.getDenominador()<<endl;
 				break;
 			case 3:
 				seguir = false;
@@ -158,32 +182,42 @@ void restar(vector<Racional>& racionales){
 void multiplicar(vector<Racional>& racionales){
 	bool seguir = true;
 	Racional rac1, rac2, rac3;
-	int pos =0;
+	int pos =-1;
 	while(seguir){
 		switch(multiMenu()){
 			case 1:
 				cout<<"Escoja el racional A:"<<endl;
 				listarRacionales(racionales);
-				pos=0;
-				cin>>pos;
+				pos = -1;
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}
 				rac1 = racionales.at(pos);
 				cout<<"Escoja el racional B:"<<endl;
-				cin>>pos;
+				pos = -1;
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}
 				rac2 = racionales.at(pos);
 				rac3 = rac1 * rac2;
-				cout<<"Suma: "<<rac3.getNumerador()<<"/"<<rac3.getDenominador()<<endl;
+				cout<<"Mult: "<<rac3.getNumerador()<<"/"<<rac3.getDenominador()<<endl;
 				break;
 			case 2:
 				cout<<"Escoja el racional A:"<<endl;
 				listarRacionales(racionales);
-				pos=0;
-				cin>>pos;
+				pos = -1;
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}
 				rac1 = racionales.at(pos);
 				cout<<"Escoja el racional B:"<<endl;
-				cin>>pos;
+				pos = -1;
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}
 				rac2 = racionales.at(pos);
 				rac1 *= rac2;
-				cout<<"Suma: "<<rac1.getNumerador()<<"/"<<rac1.getDenominador()<<endl;
+				cout<<"Mult: "<<rac1.getNumerador()<<"/"<<rac1.getDenominador()<<endl;
 				break;
 			case 3:
 				seguir = false;
@@ -195,32 +229,42 @@ void multiplicar(vector<Racional>& racionales){
 void dividir(vector<Racional>& racionales){
 	bool seguir = true;
 	Racional rac1, rac2, rac3;
-	int pos =0;
+	int pos =0-1;
 	while(seguir){
 		switch(divMenu()){
 			case 1:
 				cout<<"Escoja el racional A:"<<endl;
 				listarRacionales(racionales);
-				pos=0;
-				cin>>pos;
+				pos = -1;
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}
 				rac1 = racionales.at(pos);
 				cout<<"Escoja el racional B:"<<endl;
-				cin>>pos;
+				pos = -1;
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}
 				rac2 = racionales.at(pos);
 				rac3 = rac1 / rac2;
-				cout<<"Suma: "<<rac3.getNumerador()<<"/"<<rac3.getDenominador()<<endl;
+				cout<<"Div: "<<rac3.getNumerador()<<"/"<<rac3.getDenominador()<<endl;
 				break;
 			case 2:
 				cout<<"Escoja el racional A:"<<endl;
 				listarRacionales(racionales);
-				pos=0;
-				cin>>pos;
+				pos = -1;
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}
 				rac1 = racionales.at(pos);
 				cout<<"Escoja el racional B:"<<endl;
-				cin>>pos;
+				pos = -1;
+				while(racionales.size()-1<pos || pos <0){
+					cin>>pos;
+				}
 				rac2 = racionales.at(pos);
 				rac1 /= rac2;
-				cout<<"Suma: "<<rac1.getNumerador()<<"/"<<rac1.getDenominador()<<endl;
+				cout<<"Div: "<<rac1.getNumerador()<<"/"<<rac1.getDenominador()<<endl;
 				break;
 			case 3:
 				seguir = false;
